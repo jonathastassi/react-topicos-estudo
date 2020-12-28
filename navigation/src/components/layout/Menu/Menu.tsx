@@ -33,6 +33,15 @@ const Menu = () => {
         <li>
           <Link to="/private">Private Page</Link>
         </li>
+        <li>
+          <Link to="/page-with-lazy-component">Page With Lazy Component</Link>
+        </li>
+        <li>
+          <Link to="/page-lazy-one">Page with Lazy one</Link>
+        </li>
+        <li>
+          <Link to="/page-lazy-two">Page with Lazy two</Link>
+        </li>
       </ul>
     </nav>
   );

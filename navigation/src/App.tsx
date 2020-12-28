@@ -12,6 +12,10 @@ import PrivatePage from './pages/PrivatePage';
 import PrivateRoute from './components/route/PrivateRoute';
 import LoginPage from './pages/LoginPage';
 import AuthProvider from './contexts/AuthContext';
+import PageWithLazyComponent from './pages/PageWithLazyComponent';
+
+const PageLazyOne = React.lazy(() => import('./pages/PageLazyOne'));
+const PageLazyTwo = React.lazy(() => import('./pages/PageLazyTwo'));
 
 const App = () => {
     return (
@@ -38,6 +42,17 @@ const App = () => {
                         <PrivateRoute path="/private">
                             <PrivatePage />
                         </PrivateRoute>
+                        <Route path="/page-with-lazy-component">
+                            <PageWithLazyComponent />
+                        </Route>
+                        <React.Suspense fallback={<span>Loading...</span>}>
+                            <Route path="/page-lazy-one" >
+                                <PageLazyOne />
+                            </Route>
+                            <Route path="/page-lazy-two" >
+                                <PageLazyTwo />
+                            </Route>
+                        </React.Suspense>
                         <Route path="*">
                             <NotFound />
                         </Route>
